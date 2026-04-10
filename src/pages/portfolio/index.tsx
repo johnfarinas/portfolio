@@ -181,49 +181,31 @@ export default function PortfolioPage() {
           padding: 7rem 1.5rem 4rem; max-width: 1100px; margin: 0 auto;
         }
         .port-hero-layout {
-          display: flex; align-items: center; gap: 4rem; width: 100%;
+          display: flex; align-items: center; gap: 2rem; width: 100%;
         }
         .port-hero-inner { flex: 1; max-width: 640px; }
-
-        /* HERO PROFILE AVATAR
-         * TO SWAP IN REAL PHOTO: Replace the initials div inside .port-hero-avatar with:
-         *   <img src="/john-farinas.png" alt="John Fariñas" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'50%'}} />
-         */
         .port-hero-avatar-wrap {
-          flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+          flex: 0 0 clamp(320px, 38vw, 520px);
+          display: flex; align-items: flex-end; justify-content: center;
         }
         .port-hero-avatar {
-          width: 200px; height: 200px; border-radius: 50%;
-          background: linear-gradient(135deg, #1e3a5f 0%, #0e2a4a 40%, #0d4a5a 100%);
-          border: 3px solid var(--port-accent);
-          box-shadow: 0 0 0 6px var(--port-accent-glow), 0 12px 40px rgba(0,0,0,0.35);
-          display: flex; align-items: center; justify-content: center;
-          overflow: hidden; position: relative; transition: box-shadow 0.3s, transform 0.3s;
+          width: 100%; min-height: 520px;
+          display: flex; align-items: flex-end; justify-content: center;
+          overflow: visible; position: relative; transition: transform 0.3s;
         }
         .port-hero-avatar:hover {
-          box-shadow: 0 0 0 10px var(--port-accent-glow), 0 16px 48px rgba(0,0,0,0.45);
-          transform: scale(1.04);
+          transform: translateY(-4px);
         }
-        .port-hero-avatar-initials {
-          font-size: 4rem; font-weight: 800; color: var(--port-accent);
-          letter-spacing: -0.02em; line-height: 1; user-select: none;
-          text-shadow: 0 2px 12px rgba(56,189,248,0.4);
-          position: relative; z-index: 1;
+        .port-hero-avatar img {
+          width: 100%; height: 100%; max-height: 680px;
+          object-fit: contain; object-position: center bottom;
+          display: block;
+          filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.28));
+          transition: transform 0.3s ease, filter 0.3s ease;
         }
-        .port-hero-avatar::after {
-          content: ''; position: absolute; inset: 0; border-radius: 50%;
-          background: radial-gradient(circle at 30% 30%, rgba(56,189,248,0.08) 0%, transparent 70%);
-          pointer-events: none;
-        }
-        .port-hero-avatar-ring {
-          position: absolute; inset: -12px; border-radius: 50%;
-          border: 1.5px dashed var(--port-accent); opacity: 0.3;
-          animation: port-spin 18s linear infinite;
-        }
-        @keyframes port-spin { to { transform: rotate(360deg); } }
-        .port-hero-avatar-label {
-          font-size: 0.72rem; font-weight: 600; color: var(--port-text-muted);
-          text-transform: uppercase; letter-spacing: 0.1em;
+        .port-hero-avatar:hover img {
+          transform: translateY(-6px) scale(1.01);
+          filter: drop-shadow(0 24px 52px rgba(0, 0, 0, 0.34));
         }
 
         .port-hero-badge {
@@ -463,16 +445,16 @@ export default function PortfolioPage() {
           .port-hero-inner { max-width: 100%; }
           .port-hero-contact { justify-content: center; }
           .port-hero-actions { justify-content: center; }
-          .port-hero-avatar { width: 160px; height: 160px; }
-          .port-hero-avatar-initials { font-size: 3.2rem; }
+          .port-hero-avatar-wrap { flex: none; width: min(100%, 420px); align-items: center; }
+          .port-hero-avatar { min-height: 360px; }
         }
         @media (max-width: 768px) {
           .port-nav-links { display: none; }
           .port-hamburger { display: block; }
           .port-contact-grid { grid-template-columns: 1fr; gap: 2rem; }
           .port-hero { padding-top: 5rem; }
-          .port-hero-avatar { width: 140px; height: 140px; }
-          .port-hero-avatar-initials { font-size: 2.8rem; }
+          .port-hero-avatar-wrap { width: min(100%, 320px); }
+          .port-hero-avatar { min-height: 280px; }
         }
       `}</style>
 
@@ -566,14 +548,11 @@ export default function PortfolioPage() {
                   </a>
                 </div>
               </div>
-              {/* PROFILE PHOTO — swap placeholder for real image when ready */}
+              {/* Profile photo */}
               <div className="port-hero-avatar-wrap port-animate port-delay-2">
                 <div className="port-hero-avatar">
-                  {/* ↓ Replace this div with <img src="/john-farinas.png" alt="John Fariñas" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'50%'}} /> once the photo is available */}
-                  <div className="port-hero-avatar-initials">JF</div>
-                  <div className="port-hero-avatar-ring" />
+                  <img src="/john-farinas.png" alt="John Farinas" />
                 </div>
-                <div className="port-hero-avatar-label">John Fariñas</div>
               </div>
             </div>
           </div>
@@ -916,3 +895,7 @@ export default function PortfolioPage() {
     </div>
   );
 }
+
+
+
+
