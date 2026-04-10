@@ -180,7 +180,52 @@ export default function PortfolioPage() {
           min-height: 100vh; display: flex; align-items: center;
           padding: 7rem 1.5rem 4rem; max-width: 1100px; margin: 0 auto;
         }
-        .port-hero-inner { max-width: 700px; }
+        .port-hero-layout {
+          display: flex; align-items: center; gap: 4rem; width: 100%;
+        }
+        .port-hero-inner { flex: 1; max-width: 640px; }
+
+        /* HERO PROFILE AVATAR
+         * TO SWAP IN REAL PHOTO: Replace the initials div inside .port-hero-avatar with:
+         *   <img src="/john-farinas.png" alt="John Fariñas" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'50%'}} />
+         */
+        .port-hero-avatar-wrap {
+          flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+        }
+        .port-hero-avatar {
+          width: 200px; height: 200px; border-radius: 50%;
+          background: linear-gradient(135deg, #1e3a5f 0%, #0e2a4a 40%, #0d4a5a 100%);
+          border: 3px solid var(--port-accent);
+          box-shadow: 0 0 0 6px var(--port-accent-glow), 0 12px 40px rgba(0,0,0,0.35);
+          display: flex; align-items: center; justify-content: center;
+          overflow: hidden; position: relative; transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .port-hero-avatar:hover {
+          box-shadow: 0 0 0 10px var(--port-accent-glow), 0 16px 48px rgba(0,0,0,0.45);
+          transform: scale(1.04);
+        }
+        .port-hero-avatar-initials {
+          font-size: 4rem; font-weight: 800; color: var(--port-accent);
+          letter-spacing: -0.02em; line-height: 1; user-select: none;
+          text-shadow: 0 2px 12px rgba(56,189,248,0.4);
+          position: relative; z-index: 1;
+        }
+        .port-hero-avatar::after {
+          content: ''; position: absolute; inset: 0; border-radius: 50%;
+          background: radial-gradient(circle at 30% 30%, rgba(56,189,248,0.08) 0%, transparent 70%);
+          pointer-events: none;
+        }
+        .port-hero-avatar-ring {
+          position: absolute; inset: -12px; border-radius: 50%;
+          border: 1.5px dashed var(--port-accent); opacity: 0.3;
+          animation: port-spin 18s linear infinite;
+        }
+        @keyframes port-spin { to { transform: rotate(360deg); } }
+        .port-hero-avatar-label {
+          font-size: 0.72rem; font-weight: 600; color: var(--port-text-muted);
+          text-transform: uppercase; letter-spacing: 0.1em;
+        }
+
         .port-hero-badge {
           display: inline-block; background: var(--port-accent-glow);
           border: 1px solid var(--port-accent); color: var(--port-accent);
@@ -413,11 +458,21 @@ export default function PortfolioPage() {
         .port-animate.port-delay-3 { transition-delay: 0.3s; }
 
         /* RESPONSIVE */
+        @media (max-width: 900px) {
+          .port-hero-layout { flex-direction: column-reverse; gap: 2.5rem; text-align: center; }
+          .port-hero-inner { max-width: 100%; }
+          .port-hero-contact { justify-content: center; }
+          .port-hero-actions { justify-content: center; }
+          .port-hero-avatar { width: 160px; height: 160px; }
+          .port-hero-avatar-initials { font-size: 3.2rem; }
+        }
         @media (max-width: 768px) {
           .port-nav-links { display: none; }
           .port-hamburger { display: block; }
           .port-contact-grid { grid-template-columns: 1fr; gap: 2rem; }
           .port-hero { padding-top: 5rem; }
+          .port-hero-avatar { width: 140px; height: 140px; }
+          .port-hero-avatar-initials { font-size: 2.8rem; }
         }
       `}</style>
 
@@ -467,47 +522,58 @@ export default function PortfolioPage() {
         {/* HERO */}
         <section id="hero">
           <div className="port-hero">
-            <div className="port-hero-inner">
-              <div className="port-hero-badge port-animate">Available for opportunities</div>
-              <h1 className="port-hero-name port-animate port-delay-1">
-                John Anthony
-                <br />
-                <span>T. Fariñas</span>
-              </h1>
-              <p className="port-hero-headline port-animate port-delay-2">
-                Incident Management Analyst · Digital Operations Center Support · Full-Stack Developer
-              </p>
-              <div className="port-hero-contact port-animate port-delay-2">
-                <span>📍 Binangonan, Rizal, Philippines</span>
-                <a href="tel:+639894855940">📞 +6398 948 5940</a>
-                <a href="mailto:farinas.janthony@gmail.com">✉️ farinas.janthony@gmail.com</a>
-                <a href="https://linkedin.com/in/john-farinas" target="_blank" rel="noopener noreferrer">
-                  🔗 LinkedIn
-                </a>
-                <a href="https://github.com/johnf" target="_blank" rel="noopener noreferrer">
-                  💻 GitHub
-                </a>
+            <div className="port-hero-layout">
+              <div className="port-hero-inner">
+                <div className="port-hero-badge port-animate">Available for opportunities</div>
+                <h1 className="port-hero-name port-animate port-delay-1">
+                  John Anthony
+                  <br />
+                  <span>T. Fariñas</span>
+                </h1>
+                <p className="port-hero-headline port-animate port-delay-2">
+                  Incident Management Analyst · Digital Operations Center Support · Full-Stack Developer
+                </p>
+                <div className="port-hero-contact port-animate port-delay-2">
+                  <span>📍 Binangonan, Rizal, Philippines</span>
+                  <a href="tel:+639894855940">📞 +6398 948 5940</a>
+                  <a href="mailto:farinas.janthony@gmail.com">✉️ farinas.janthony@gmail.com</a>
+                  <a href="https://linkedin.com/in/john-farinas" target="_blank" rel="noopener noreferrer">
+                    🔗 LinkedIn
+                  </a>
+                  <a href="https://github.com/johnf" target="_blank" rel="noopener noreferrer">
+                    💻 GitHub
+                  </a>
+                </div>
+                <div className="port-hero-actions port-animate port-delay-3">
+                  <a
+                    href="#contact"
+                    className="port-btn-primary"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollTo("contact");
+                    }}>
+                    Get In Touch
+                  </a>
+                  <a href="#" className="port-btn-outline" onClick={(e) => e.preventDefault()}>
+                    ⬇ Download CV
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/john-farinas"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="port-btn-outline">
+                    LinkedIn
+                  </a>
+                </div>
               </div>
-              <div className="port-hero-actions port-animate port-delay-3">
-                <a
-                  href="#contact"
-                  className="port-btn-primary"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollTo("contact");
-                  }}>
-                  Get In Touch
-                </a>
-                <a href="#" className="port-btn-outline" onClick={(e) => e.preventDefault()}>
-                  ⬇ Download CV
-                </a>
-                <a
-                  href="https://linkedin.com/in/john-farinas"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="port-btn-outline">
-                  LinkedIn
-                </a>
+              {/* PROFILE PHOTO — swap placeholder for real image when ready */}
+              <div className="port-hero-avatar-wrap port-animate port-delay-2">
+                <div className="port-hero-avatar">
+                  {/* ↓ Replace this div with <img src="/john-farinas.png" alt="John Fariñas" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'50%'}} /> once the photo is available */}
+                  <div className="port-hero-avatar-initials">JF</div>
+                  <div className="port-hero-avatar-ring" />
+                </div>
+                <div className="port-hero-avatar-label">John Fariñas</div>
               </div>
             </div>
           </div>
