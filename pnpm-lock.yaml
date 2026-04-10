@@ -90,8 +90,8 @@ importers:
         specifier: ^1.2.7
         version: 1.2.8(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@refinedev/cli':
-        specifier: ^2.16.49
-        version: 2.16.49(@types/node@20.17.17)(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^2.16.52
+        version: 2.16.52(@types/node@20.17.17)(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@refinedev/core':
         specifier: ^5.0.11
         version: 5.0.11(@tanstack/react-query@5.90.2(react@19.2.0))(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -1337,8 +1337,8 @@ packages:
   '@reach/observe-rect@1.2.0':
     resolution: {integrity: sha512-Ba7HmkFgfQxZqqaeIWWkNK0rEhpxVQHIoVyW1YDSkGsGIXzcaW4deC8B0pZrNSSyLTdIk7y+5olKt5+g0GmFIQ==}
 
-  '@refinedev/cli@2.16.49':
-    resolution: {integrity: sha512-yHV+BNKRRmascLe66oemsRi64SXPkVROs63sesqom7Jra89am0E5IXALbKX6Nn9awoF1bVID8zyAA1FXBIt/kA==}
+  '@refinedev/cli@2.16.52':
+    resolution: {integrity: sha512-rr8QvL5ngpwqoD89unr1walLxGRHwQRC+bs9DYfPXiQM5oS8GNqo5GSQr70m1yZZssD1cNrIPvCuO67pkJxiYg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -1361,19 +1361,10 @@ packages:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
 
-  '@refinedev/devtools-server@2.0.0':
-    resolution: {integrity: sha512-IyuM6yg/4IhwMTK7pRR/kt1R37DDU8FrEfDl+pzP4SL7DXm0gKiR+YK5wCMQcw/qwHANv2caDFac1pQatINvQw==}
+  '@refinedev/devtools-server@2.0.2':
+    resolution: {integrity: sha512-xiS9ROvwws/iqDykGps4hliPROYkgJMTZTHEt4llwJ7rlXxRpXyF316n2wWZUakWSBXRYxgIkIvdDeAE7Uu1Tg==}
     engines: {node: '>=20'}
     hasBin: true
-    peerDependencies:
-      '@types/react': ^18.0.0 || ^19.0.0
-      '@types/react-dom': ^18.0.0 || ^19.0.0
-      react: ^18.0.0 || ^19.0.0
-      react-dom: ^18.0.0 || ^19.0.0
-
-  '@refinedev/devtools-shared@2.0.0':
-    resolution: {integrity: sha512-wZCANG8ZBKcEHb9dCmNE40cqpw8LT/ujv1/xyV9XgNEIJJIKDe0HunqCiBimbyowzAtdrWqM3X3X5UwgQze9ug==}
-    engines: {node: '>=20'}
     peerDependencies:
       '@types/react': ^18.0.0 || ^19.0.0
       '@types/react-dom': ^18.0.0 || ^19.0.0
@@ -2552,11 +2543,12 @@ packages:
 
   glob@10.4.5:
     resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   globals@16.4.0:
     resolution: {integrity: sha512-ob/2LcVVaVGCYN+r14cnwnoDPUufjiYgSqRhiFD0Q1iI4Odora5RE8Iv1D24hAz5oMophRGkGz+yuvQmmUMnMw==}
@@ -5315,10 +5307,10 @@ snapshots:
 
   '@reach/observe-rect@1.2.0': {}
 
-  '@refinedev/cli@2.16.49(@types/node@20.17.17)(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@refinedev/cli@2.16.52(@types/node@20.17.17)(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@npmcli/package-json': 5.2.1
-      '@refinedev/devtools-server': 2.0.0(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@refinedev/devtools-server': 2.0.2(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       boxen: 5.1.2
       camelcase: 6.3.0
       cardinal: 2.1.1
@@ -5392,9 +5384,9 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
-  '@refinedev/devtools-server@2.0.0(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@refinedev/devtools-server@2.0.2(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
-      '@refinedev/devtools-shared': 2.0.0(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@refinedev/devtools-shared': 2.0.2(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@types/react': 19.2.2
       '@types/react-dom': 19.2.1(@types/react@19.2.2)
       body-parser: 1.20.3
@@ -5425,15 +5417,6 @@ snapshots:
       - encoding
       - supports-color
       - utf-8-validate
-
-  '@refinedev/devtools-shared@2.0.0(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
-    dependencies:
-      '@tanstack/react-query': 5.90.2(react@19.2.0)
-      '@types/react': 19.2.2
-      '@types/react-dom': 19.2.1(@types/react@19.2.2)
-      error-stack-parser: 2.1.4
-      react: 19.2.0
-      react-dom: 19.2.0(react@19.2.0)
 
   '@refinedev/devtools-shared@2.0.2(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
@@ -6078,7 +6061,7 @@ snapshots:
       json-schema-typed: 7.0.3
       onetime: 5.1.2
       pkg-up: 3.1.0
-      semver: 7.5.2
+      semver: 7.7.2
 
   content-disposition@0.5.4:
     dependencies:
